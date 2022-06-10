@@ -1,0 +1,78 @@
+body {
+  margin: 10px;
+}
+
+/* Pseudo-class Selectors */
+
+/* Only applies to the first child of the article element */
+article :first-child {
+  font-size: 140%;
+  font-style: italic;
+}
+
+/* Applies to all childs that are the first of ther type */
+article :first-of-type {
+  font-size: 140%;
+  font-style: italic;
+}
+
+/* last of each type, but here only aplies for p */
+article p:last-of-type {
+  font-weight: bold;
+}
+
+/* Only works if the last child is indeed a p */
+article p:last-child {
+  font-weight: bold;
+}
+
+/* You can also use 3n for every third */
+ul li:nth-child(odd) {
+  color: deeppink;
+}
+
+/* Hyperlinks */
+
+a:visited,
+a:link {
+  color: dodgerblue;
+}
+
+/* When mouse hovers or tab is focused */
+a:hover,
+a:focus {
+  color: brown;
+}
+
+/* Pseudo element selectors
+Only part of the element is affected with 
+Pseudo class the whole element (p) is affected */
+p::first-letter {
+  font-size: 340%;
+  font-weight: bold;
+}
+
+p::first-line {
+  color: blueviolet;
+  font-weight: bold;
+}
+
+::selection {
+  background-color: darkgreen;
+}
+
+p::selection {
+  background-color: coral;
+}
+
+/* Its inline element but can be converted to block level element */
+p::before {
+  content: "...";
+  display: block;
+}
+
+p::after {
+  content: "... THE END";
+}
+
+

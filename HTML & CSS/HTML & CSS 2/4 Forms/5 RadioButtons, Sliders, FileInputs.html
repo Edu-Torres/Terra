@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="5 RadioButtons, Sliders, FileInputs.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+</head>
+<body>
+    <form>
+        <!-- Radio Boxes  -->
+        <div>
+            <input type="radio" name="membership" id="silver">
+            <label for="silver" class="label-inline">Silver</label>
+        </div>
+        <div>
+            <input type="radio" name="membership" id="gold">
+            <label for="gold" class="label-inline">Gold</label>
+        </div>
+        <div>
+            <input type="radio" name="membership" id="platinum" checked>
+            <label for="platinum" class="label-inline">Platinum</label>
+        </div>
+        <!-- Slider  -->
+        <input type="range" min="0" max="100" value="90">
+        <!-- The value can be read with JS  -->
+        <!-- File Input  -->
+        <br>
+        <input type="file" multiple accept=".jpg, .png, video/*">
+        <!-- Grouping Related Fields  -->
+        <fieldset>
+            <legend>Billing Address</legend>
+            <input type="text">
+            <input type="text">
+            <input type="text">
+        </fieldset>
+        <section>
+            <h2>Payment</h2>
+            <input type="text">
+            <input type="text">
+            <input type="text">
+        </section>
+    </form>
+</body>
+</html>

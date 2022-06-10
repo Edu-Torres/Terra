@@ -1,0 +1,12 @@
+/* Data URI generator */
+/* CSS clip generator  */
+.sanFrancisco {
+  clip-path: polygon(0 0, 64% 0, 89% 51%, 63% 100%, 0 100%, 44% 51%);
+}
+
+/* Filter  */
+/* Apply pseudo class selector  */
+/* caniuse.com mostly the only exception is Internet Explorer */
+.sanFrancisco:hover {
+  filter: grayscale(80%) blur(2px);
+}

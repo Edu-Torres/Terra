@@ -1,0 +1,64 @@
+body {
+  /* height between lines 1rem for the text .5rem for spacing*/
+  line-height: 1.5rem;
+  /* If you dont supply a unit it is a multiplier of fontsize, so it always looks good  */
+  line-height: 2;
+}
+
+h1:first-of-type {
+  margin: 0;
+  color: rgb(38, 122, 94);
+}
+
+p {
+  /* Law of proximity  */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: .5rem 0 2rem;
+}
+
+
+/* Horizontal Spacing  */
+p.second {
+    /* Could also be negative to bring them closer  */
+    letter-spacing: 5px;
+}
+
+p.third {
+    word-spacing: 25px;
+}
+
+/* Ideal line length: 50-70 characters  */
+p.fourth {
+    /* character (ch) is relative to the width of char 0  */
+    /* So 50ch aproximately fits 50 to 70 chars  */
+    width: 50ch;
+}
+
+/* Formatting  */
+p.second {
+    text-align: center;
+    text-decoration: underline;
+}
+
+/* The first line of subsequent paragraphs  */
+p.third + p {
+    text-indent: 2rem;
+    text-transform: capitalize;
+}
+
+p.fifth {
+    width: 50ch;
+    white-space: nowrap;
+    border: 3px solid gold;
+    overflow: hidden;
+    /* ... */
+    text-overflow: ellipsis;
+}
+
+p.sixth {
+    column-count: 2;
+    column-gap: 5rem;
+    column-rule: 3px dotted gray;
+    /* For persian and iranian  */
+    direction: rtl;
+}

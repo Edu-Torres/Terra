@@ -1,0 +1,37 @@
+.first {
+  /* Hide it leaving its space used  */
+  visibility: hidden;
+  /* Erase completeley  */
+  display: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.box {
+  background-color: gold;
+  padding: 1rem;
+}
+
+.box:nth-of-type(2) {
+  background: dodgerblue;
+}
+
+/* Query */
+@media screen and (min-width: 600px) {
+  .container {
+    flex-direction: row;
+  }
+}
+
+@media print {
+  body {
+    font: 12pt;
+  }
+  .box {
+    padding: 0.5cm;
+    background: white;
+  }
+}

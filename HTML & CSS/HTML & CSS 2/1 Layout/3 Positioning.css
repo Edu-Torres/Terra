@@ -1,0 +1,72 @@
+body {
+    height: 200vh;
+}
+.boxes {
+    border: 3px solid lightgrey;
+}
+
+.box {
+    width: 5rem;
+    height: 5rem;
+    position: relative;
+    /* Has to be relative in other for a child to be absolute  */
+}
+
+.box-one {
+    background-color: gold;
+    position: fixed;
+    top: 20rem;
+    left: 2rem;
+    right: 2rem;
+    width: auto;
+    /* So the width is decided by the browser use left and rigth */
+}
+.box-two {
+    background-color: tomato;
+    position: relative;
+    /* relative doesnt interfere with the other objects  */
+    left: 2rem;
+    /* Add 5 rem to the left so the box moves right  */
+    bottom: 2rem;
+    z-index: -1;
+    /* z index y depth so negative value oushes it behind  */
+
+}
+.box-three {
+    background-color: dodgerblue;
+    position: absolute;
+    /* Removed from the normal flow of the page  */
+    right: 0;
+    bottom: 0;
+}
+
+
+/* Float  */
+.avatar {
+    width: 5rem;
+    height: 5rem;
+    background-color: gray;
+    float: left;
+    /* This means all elements can flow around it  */
+    margin-right: 0.5rem;
+}
+
+.clear {
+    clear: both;
+    /* can also be left or right and steers clear of float  */
+}
+
+.tweet {
+    border: 3px solid black;
+    /* parent elements dont see floating elements */
+    /* So you should add a blank clear after the float element  */
+    /* Or use a pseudo element */
+    /* Or use overfloat property set it to smt other than visible */
+    overflow: hidden;
+}
+
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+}

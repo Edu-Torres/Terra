@@ -1,0 +1,16 @@
+body {
+  background: url(images/constellation.svg);
+}
+
+.ufo {
+  width: 100px;
+}
+
+.fa-shrimp {
+  color: aliceblue;
+}
+
+.icon {
+  color: dodgerblue;
+  font-size: 14rem;
+}

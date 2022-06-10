@@ -1,0 +1,7 @@
+/* High-density screens  */
+/* Physical resolution (real # pixels)
+Logical resolution (device system used resolution)
+Device Pixel Ratio (DPR) = physical/logical  */
+/* High-density screen: DPR > 1  */
+.meal {
+}

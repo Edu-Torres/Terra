@@ -1,0 +1,59 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+}
+
+.container {
+  height: 100vh;
+  background: url(images/galaxy320.jpg);
+  background-size: cover;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  text-align: center;
+}
+
+h1 {
+  font-weight: 900;
+  font-size: 5rem;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0 #000;
+  word-spacing: 1.5rem;
+}
+
+/* So also having a huge height counts (useful in phonescreens) ',' used as or */
+@media screen and (min-width: 853px),
+screen and (min-height: 853px) {
+  .container {
+    background: url(images/galaxy924.jpg);
+    background-size: cover;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+}
+@media screen and (min-width: 1228px),
+screen and (min-height: 1228px) {
+  .container {
+    background: url(images/galaxy1388.jpg);
+    background-size: cover;
+  }
+  h1 {
+    font-size: 6rem;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .container {
+    background: url(images/galaxy1440.jpg);
+    background: url(images/galaxy1440.jpg);
+  }
+  h1 {
+    font-size: 9rem;
+  }
+}

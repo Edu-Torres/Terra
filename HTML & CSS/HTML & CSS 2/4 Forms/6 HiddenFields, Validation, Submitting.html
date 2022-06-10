@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="6 HiddenFields, Validation, Submitting.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <!-- Hidden Fields  -->
+        <input type="hidden" name="course-id" value="1234">
+        <!-- Can be found in the source of the page  -->
+
+        <!-- Data Validation  -->
+        <!-- In HTML you can perform the basic checks  -->
+        <input type="text" required minlength="3" maxlength="10">
+        <input type="number" required min="0" max="10">
+        <button type="submit">Submit</button>
+    </form>
+    <!-- Submitting  -->
+    <form action="https://formspree.io/f/xnqwgqvp" method="POST">
+        <h3>Submitting</h3>
+        <input type="text" placeholder="Name" name="name">
+        <input type="email" placeholder="Email" name="email">
+        <button type="submit">Submit</button>
+        <!-- or input, but you cant add icon  -->
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

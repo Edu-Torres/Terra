@@ -1,0 +1,39 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    background: gold;
+}
+
+.box:hover {
+    transform: rotate(-25deg) scale(1.5);
+    transform: skew(30deg);
+    transform: translate(30px, 10px);
+    /* Perspective so there is depth and Z axis works */
+    transform: perspective(100px) translateZ(95px);
+    /* Rotate X and Y requires perspective  */
+    transform: perspective(100px) rotateX(25deg);
+    /* Set the origin, 0 0 is the left-top corner */
+    /* It is in 50% 50% by defualt  */
+    transform-origin: 50% 0;
+}
+
+.container {
+    /* So both boxes share the same perspective  */
+    perspective: 200px;
+}
+
+.container:hover .box{
+    transform: rotateY(45deg);
+    transform-origin: 0 50%;
+}
+
+.container:hover .box-special{
+    transform: rotateX(45deg);
+}

@@ -1,0 +1,57 @@
+P {
+    color: darkslategray;
+}
+
+body {
+    margin: 10px;
+}
+
+/* Selecting by id */
+#prodcuts {
+
+}
+
+/* Selecting by class */
+.product {
+
+}
+
+/* Select by attributes */
+a[target] {
+    color: brown;
+}
+ /* Checking for google somewhere */
+a[href*="google"] {
+    color: cadetblue;
+}
+/* Start */
+a[href^="https"] {
+    color: crimson;
+}
+/* end */
+a[href$=".com"][href^="https"] {
+    color: chocolate;
+}
+
+
+/* Relational selectors */
+
+/* Descendant selector */
+#products p {
+    color: rgb(72, 255, 0);
+}
+/* But only the child not grandchild use >  */
+#products > p {
+    color: blue;
+}
+
+/* All p immediately after #products  */
+#products ~ p {
+    color: yellow;
+}
+
+/* only the one element immediately after */
+#products + p {
+    color: deeppink;
+}
+

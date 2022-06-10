@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="3 Resolution.css" />
+  </head>
+  <body>
+    <!-- High-density screens  -->
+    <h2>High Density sreen</h2>
+    <img
+      class="meal"
+      src="images/meal.jpg"
+      alt="A bowl of salmon and curry"
+      srcset="images/meal.jpg 1x, images/meal@2x.jpg 2x, images/meal@3x.jpg 3x"
+    />
+
+    <!-- Resolution Switching  -->
+    <!-- w to give actual width of the image in pxs  -->
+    <h2>Resolution Switching</h2>
+    <img
+      class="meal"
+      src="images/meal.jpg"
+      alt="A bowl of salmon and curry"
+      srcset="
+        images/meal.jpg     400w,
+        images/meal@2x.jpg  800w,
+        images/meal@3x.jpg 1200w
+      "
+      sizes="
+      (max-width: 500px) 100vw,
+      (max-width: 700px) 50vw,
+      33vw
+      "
+    />
+    <!-- Check responsivebreakpoints.com  -->
+
+    <h2>WebP format</h2>
+    <!-- WebP format, modern image  cloudconvert.com-->
+    <!-- Saves on a lot of size, it is a little less sharp   -->
+    <img src="images/meal.webp" alt="" />
+    <!-- To support internet explorer  -->
+    <picture>
+      <source
+        type="image/webp"
+        srcset="images/meal.webp 1x, images/meal@2x.webp 2x"
+      />
+      <!-- In img just in case you are in normal browser  -->
+      <img src="images/meal.webp" alt="" />
+    </picture>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+.container {
+    border: 3px solid lightgrey;
+    display: flex;
+    /* To lay horizontally */
+    /* THe default behavior is elements get smaller to fit container  */
+    flex-wrap: wrap;
+    /* This way they adjust to next line  */
+    flex-direction: row;
+    /* This sets the main axes as horizontal and cross axe as vertical  */
+    justify-content: space-between;
+    /* This relates to the main axe  */
+    align-items: center;
+    /* This relates to the cross or secondary axe  */
+    align-content: center;
+    /* This works when there are multiple lines  */
+    height: 80vh;
+}
+
+.box-one {
+    align-self: flex-start;
+    /* Override align-item  */
+}
+
+
+/* Sizing */
+
+.box {
+    flex-basis: 6rem;
+    /* Applies to main direcion  */
+    flex-grow: 1;
+    /* Allow items to grow and take up available space  */
+    flex-shrink: 1;
+    /* How to shrink if there is no enough space 0 mantain size */
+    flex: 1 1 6rem;
+    /* flex growth / flex shrink / flex basis  */
+    width: 4rem;
+    height: 4rem;
+    background: gold;
+    margin: 1rem;
+}

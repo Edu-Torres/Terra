@@ -1,0 +1,43 @@
+/* Overflow is by default is visible */
+/* overflow has horizontal and vertical properties */
+body {
+}
+.box {
+  border: 3px solid gold;
+  width: 150px;
+  height: 150px;
+  overflow: hidden auto;
+}
+/* auto gives scrolling properties */
+
+/* Absolute units: px */
+/* Not really responsive to screen sizes */
+.px {
+  width: 100px;
+  height: 100px;
+  background-color: bisque;
+  border-top: 3px;
+}
+
+/* Relative units */
+/* Percent of the body element */
+/* The default height of body is 0 only content in div is shown */
+.percentage {
+  width: 50%;
+  height: 100%;
+  background-color: greenyellow;
+}
+
+/* Viewport units */
+.viewport {
+  width: 50vw;
+  height: 50vh;
+  background-color: lightsalmon;
+}
+
+/* em (10 x font) and ren (10 x root element font: 16) */
+.emrem {
+  width: 10em;
+  height: 10rem;
+  background-color: lightskyblue;
+}

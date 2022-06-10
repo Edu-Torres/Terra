@@ -1,0 +1,69 @@
+/* Important keyword obligates 
+even if it isnt the most specific selector */
+h1 {
+    color: dodgerblue !important;
+}
+
+.highlight {
+    color: deeppink;
+}
+
+#products {
+    color: greenyellow;
+}
+
+/* More specific selectors */
+.highlight#products {
+    color: gray;
+}
+
+/* Inheritance */
+
+p {
+    color: indigo;
+    border: 1px solid black;
+}
+
+/* Stop inheritance in strong or force it*/
+strong {
+    color: initial;
+    border: inherit
+}
+
+/* Colors */
+.box {
+    width: 200px;
+    height: 200px;
+    background-color: hsl(270, 65%, 49%, 0.36);
+    border: 10px dotted rebeccapurple;
+    border-top: 20px solid royalblue;
+    border-width: 10px 20px 10px 20px; /* top right bottom left */
+    border-radius: 50px;
+    box-shadow: 10px -10px 6px rgba(19, 15, 230, 0.44);
+}
+
+h1 {
+    color: white;
+    text-shadow: 3px 0px 5px rgba(0, 0, 0, 0.2);
+    
+}
+
+.box2 {
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle at top left, white, yellow);
+}
+
+.square {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(to bottom right, dodgerblue, yellow 30%);
+}
+
+.square2 {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(22.5deg, rgb(18, 223, 195), rgb(248, 54, 6), gray);
+}
+
+

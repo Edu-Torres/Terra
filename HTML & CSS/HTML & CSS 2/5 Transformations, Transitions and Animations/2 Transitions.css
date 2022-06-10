@@ -1,0 +1,19 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    background: gold;
+    /* Total time, function linear or cubic-bezier() and delay*/
+    transition: transform 0.5s ease-in 1s, background 3s;
+}
+
+.box:hover {
+    transform: rotateZ(90deg);
+    background: dodgerblue;
+}

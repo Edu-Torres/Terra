@@ -1,0 +1,58 @@
+.container {
+  display: grid;
+
+  grid-template-rows: 100px auto 100px;
+  /* auto so middle row gets remaining available space */
+  /* Repeat function  */
+  grid-template-columns: repeat(2, 100px);
+  /* rows and columns shirt hand syntax  */
+  grid-template: 100px 50fr 50fr / 30% 70%;
+  /* fr is % but of available space  */
+
+  /* Name cells  */
+  grid-template-areas: 
+  "header header"
+  "sidebar main"
+  ".       footer";
+
+  border: 3px solid lightblue;
+
+  /* Align items  */
+  /* Horizontal Axe */
+  justify-items: stretch;
+  /* By default stretch and this means items fill whole cell  */
+  /* Vertical Axe  */
+  align-items: stretch;
+
+  /* Align Grid  */
+  /* Horizontal Axe */
+  justify-content: center;
+  /* Vertical Axe  */
+  align-content: center;
+
+  /* Gap  */
+  row-gap: 10px;
+  column-gap: 10px;
+  gap: 10px 10px;
+
+  height: 100vh;
+}
+
+.box {
+  background: gold;
+}
+
+/* Placing items  */
+.box-one {
+  grid-column: 1 / 3;
+  /* Go from line 1 to 3  */
+  /* Could also use span : 1 / span 2;  */
+  grid-row: 2;
+  /* Start row and column, and end row and column  */
+  grid-area: 1/1/1/3;
+  grid-area: header;
+}
+
+.box-four {
+  grid-area: footer;
+}

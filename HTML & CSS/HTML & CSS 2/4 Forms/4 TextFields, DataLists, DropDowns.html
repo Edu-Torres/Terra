@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="4 TextFields, DataLists, DropDowns.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+</head>
+<body>
+    <form>
+        <input type="text" list="countries" autocomplete="off">
+        <!-- turn off native autocomplete so it doesnt clash with list -->
+        <!-- Suggestion List  -->
+        <datalist id="countries">
+            <!-- In html by writing data- you can create your own attribute  -->
+            <option data-value="1" >Australia</option>
+            <option value="2">India</option>
+            <option data-value="3">Canada</option>
+            <option data-value="4">Mexico</option>
+        </datalist>
+        <input type="number" value="4567" readonly>
+        <input type="password" placeholder="type pswd" autofocus>
+        <!-- disabled means it will not be sent when submitted, readonly will  -->
+        <input type="date" disabled>
+        <!-- Text area prepopulation is done by writing between the ><  -->
+        <textarea cols="30" rows="10" maxlength="5">Prepolutated...</textarea>
+        <!-- Dropdown List  -->
+        <select multiple>
+            <!-- Multiple selection  -->
+            <!-- First option usually blanks allows no selection  -->
+            <option value="">Select a Course...</option>
+            <option value="1">HTML</option>
+            <option value="2" selected>CSS</option>
+            <option value="3">JavaScript</option>
+            <optgroup label="Other Courses">
+                <option value="4">Pottery</option>
+                <option value="4">Swimming</option>
+                <option value="4">Riding</option>
+            </optgroup>
+        </select>
+        <!-- CheckBoxes  -->
+        <div>
+            <input type="checkbox" id="front-end">
+            <label class="label-inline" for="front-end">Front-end</label>
+        </div>
+        <div>
+            <input type="checkbox" id="back-end" checked>
+            <label class="label-inline" for="back-end">Back-end</label>
+            <!-- If you click on the label the box also gets selected  -->
+        </div>
+    </form> 
+</body>
+</html>

@@ -1,0 +1,65 @@
+/* Visit fonts.google.com and type-scale.com  */
+@font-face {
+  font-family: "opensans";
+  /* Change URLs  */
+  src: url("Fonts/Open-Sans/opensans-bold-webfont.woff2") format("woff2"),
+    url("Fonts/Open-Sans/opensans-bold-webfont.woff") format("woff");
+  /* Change weight since it is bold  */
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "opensans";
+  src: url("Fonts/Open-Sans/opensans-regular-webfont.woff") format("woff2"),
+    url("Fonts/Open-Sans/opensans-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  /* What to do while costum font is downloaded  */
+  /* Default is swap, fallback is wait a little if not downloaded
+  keep fallback font, block is hide text while waiting, optional is fallback 
+  and saves it in background in cache for next load  */
+  font-display: fallback;
+}
+/* If internet is slow Flash of Unstyled Text might occur briefly  */
+
+body {
+  /* ctr + space brings out Web Safe Fonts */
+  /* Font stack, will use first available font in browser */
+  /* Last font is a generic font and the browser will decide the font */
+  font-family: "opensans", Arial, Helvetica, sans-serif;
+  
+}
+/* Generic fonts serif sans-serif and monospace  */
+
+h1 {
+  /* Times new roman is in quotes since it has spaces  */
+  font-family: Nunito, Georgia, "Times New Roman", Times, serif;
+  font-size: 2rem;
+  
+}
+
+p {
+  /* Boldness  */
+  font-weight: 400;
+  font-style: normal;
+  /* Dont use pixel value  */
+  font-size: 19px;
+  /* Best not to use pure black with main body text  */
+  color: #333;
+}
+
+/* System Font Stack  */
+.systemFont {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: blueviolet;
+  font-size: 1rem;
+}
+ 
+@media screen and (min-width: 600px) {
+  html{
+    /* Default value of all the elements */
+    font-size: 150%;
+  }
+  
+}
