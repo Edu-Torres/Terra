@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>People</title>
+  </head>
+  <body>
+    <button id="addButton">Add</button>
+    <br />
+    <button id="testButton">Test</button>
+    <br />
+    <div id="output"></div>
+    <script>
+      const addButton = document.getElementById("addButton");
+      addButton.addEventListener("click", addJSON);
+      const testButton = document.getElementById("testButton");
+      testButton.addEventListener("click", tester);
+      const output = document.querySelector("#output");
+
+      String.prototype.capitalize = function() {
+        return this.charAt(0).toUpperCase() + this.slice(1);
+      };
+
+      function tester() {
+        let tempArray = [4, 5, 6, 7, 9, 122];
+        const html = tempArray.map(function (val, i) {
+          return "<li>" + i + " = " + val * 2 + "</li>";
+        });
+        console.log(html.join(""));
+        output.innerHTML = "<ul>" + html.join("") + "</ul>";
+      }
+
+      function addJSON() {
+        const url = "https://randomuser.me/api/?results=10";
+        fetch(url)
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (data) {
+            let people = data.results;
+            console.log(people);
+            const html = people.map(function (val, i) {
+              return (
+                "<li>" +
+                (i + 1) +
+                ". " +
+                val.name.first.capitalize() +
+                " " +
+                val.name.last.capitalize() +
+                "</li>"
+              );
+            });
+            output.innerHTML = "<ul>" + html.join("") + "</ul>";
+          });
+      }
+    </script>
+  </body>
+</html>

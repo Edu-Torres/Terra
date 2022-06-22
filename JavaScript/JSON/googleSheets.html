@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>People</title>
+  </head>
+  <body>
+    <button id="addButton">Add</button>
+    <br />
+    <table id="output"></table>
+    <script>
+      const addButton = document.getElementById("addButton");
+      addButton.addEventListener("click", addJSON);
+      const output = document.querySelector("#output");
+
+      function addJSON() {
+        // https://docs.google.com/spreadsheets/d/1denCQhaaHm-G6fYE-vsQK7YyvPrGrTahBVHwbdZ5iPk/edit?usp=sharing
+
+        const id = "1denCQhaaHm-G6fYE-vsQK7YyvPrGrTahBVHwbdZ5iPk";
+        const query =
+          "&tq=" + encodeURIComponent("Select A,B, C where D > 0 limit 10");
+        const url =
+          "https://docs.google.com/spreadsheets/d/" + id + "/gviz/tq?" + query;
+        output.innerHTML = "";
+        fetch(url)
+          .then(function (response) {
+            return response.text();
+          })
+          .then(function (data) {
+            ans = data.substr(47).slice(0, -2);
+            ans = JSON.parse(ans);
+            const row = document.createElement("tr");
+            output.append(row);
+            ans.table.cols.forEach((heading) => {
+              const cell = document.createElement("td");
+              cell.textContent = heading.label;
+              row.append(cell);
+            });
+            ans.table.rows.forEach((line) => {
+              const row = document.createElement("tr");
+              output.append(row);
+              console.log(line);
+              line.c.forEach((value) => {
+                const cell = document.createElement("td");
+                cell.textContent = value.v;
+                row.append(cell);
+              });
+            });
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      }
+    </script>
+  </body>
+</html>
