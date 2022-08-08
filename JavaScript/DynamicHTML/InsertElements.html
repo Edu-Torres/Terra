@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Dynamic Markup with JavaScript Example</title>
+       <script language="javascript"  src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+    </head>
+	<script id="demo" type="text/javascript">
+		$(document).ready(function() {
+			// our array of objects for some data to play with
+			var arr = [
+				{ fname : "Bart", lname : "Simpson", email: "bsimpson@somedomain.com"},
+				{ fname : "Alfred E", lname : "Newman", email: "aenewman@somedomain.com"},
+				{ fname : "Steve", lname : "Austin", email: "saustin@somedomain.com"}
+			]
+ 
+			var i = 0,
+				arrLen = arr.length - 1
+				str = "";
+			// loop through all elements in the array, building a form for each object
+			for (; i <= arrLen; i++ ) {
+			str = str + '<form>'
+							+ '<label for="fname"><b>First Name:</b></label> <input type="text" name="fname" size="20" value="' + arr[i].fname + '" />'
+							+ '<label for="lname"><b>Last Name:</b></label> <input type="text" name="lname" size="20" value="' + arr[i].lname + '" />'
+							+ '<label for="email"><b>Email:</b></label> <input type="text" name="email" size="20" value="' + arr[i].email + '" />'
+							+ '<button type="submit">Submit</button>'
+						+ "</form>";
+			};
+			//append the markup to the DOM
+			$("#foo").html(str);
+		});
+	</script>
+    <body>
+		<div id="foo"></div>
+    </body>
+</html>

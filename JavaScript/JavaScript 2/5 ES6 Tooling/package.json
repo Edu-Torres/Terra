@@ -1,0 +1,20 @@
+{
+  "name": "5-es6-tooling",
+  "version": "1.0.0",
+  "description": "My webpack project",
+  "main": "index.js",
+  "scripts": {
+    "babel": "babel --presets env index.js -o build/index.js",
+    "build": "webpack -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@webpack-cli/init": "^0.2.2",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "webpack-cli": "^4.10.0"
+  }
+}
