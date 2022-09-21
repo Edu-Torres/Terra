@@ -34,3 +34,7 @@ replay_pid*
 
 # lock files
 package-lock.json
+
+#Specific Files
+Proyecto\ Final_2.ipynb
+Vuelos.ipynb
