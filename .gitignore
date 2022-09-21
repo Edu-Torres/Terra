@@ -36,5 +36,6 @@ replay_pid*
 package-lock.json
 
 #Specific Files
+Python\ Notebooks/*
 Proyecto\ Final_2.ipynb
 Vuelos.ipynb
