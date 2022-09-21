@@ -1,0 +1,1 @@
+// In tsconfig file set Experimental Decorators to true

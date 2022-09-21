@@ -89,8 +89,9 @@ class Person {
         return this.firstName + ' ' + this.lastName;
     }
 
-    walk() {
-        console.log('Walking');
+    // Protected Members
+    protected walk() { // Like private but accesible to children classes
+        console.log('Waling');
     }
 }
 
@@ -101,7 +102,75 @@ class Student extends Person {
 
     takeTest() {
         console.log('Taking a test');
+        this.walk();
     }
 }
 
 let student = new Student(1, 'Johnny', 'Test');
+student.takeTest();
+
+// Method Overriding
+class Teacher extends Person{
+    // If I don't add a constructor I'll be extending the one from the parent class
+    
+    // override keyword
+    // If you don't write it, the method will be disconnected from the one defined in the base class
+    // set noImplicitOverride to true so you always rememeber to write it
+    override get fullName() {
+        // can call parent method
+        return 'Professor ' + super.fullName;
+    }
+}
+let teacher = new Teacher("Juan", "Torres");
+console.log(teacher.fullName);
+
+
+// Polymorphism
+function printNames(people: Person[]) {
+    for (let person of people) {
+        console.log(person.fullName);
+    }
+}
+// Open Closed Principle: Classes should be open for extension and closed for modification
+printNames([new Person("John", "Smith"), new Teacher("Jacob", "Lautner")]);
+
+
+
+// Abstract Classes
+// So as not to be able to create an instance of Shape
+abstract class Shape {
+    constructor(public color: string) { }
+    abstract render(): void;
+}
+
+class Circle extends Shape{
+    constructor(public radius: number, color: string) { 
+        super(color);
+    }
+
+    override render(): void {
+        
+    }
+}
+
+
+
+// Interfaces
+interface Calendar { // Like abstract class, but it cannot have methods implementations only declarations
+    name: string;
+    addEvent(): void;
+    removeEvent(): void;
+}
+interface CloudCalendar extends Calendar {
+    sync(): void;
+}
+class GoogleCalendar implements Calendar {
+    constructor(public name: string) { };
+    addEvent(): void {
+        throw new Error("Method not implemented.");
+    }
+    removeEvent(): void {
+        throw new Error("Method not implemented.");
+    }
+
+}

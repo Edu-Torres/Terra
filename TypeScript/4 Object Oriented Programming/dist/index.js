@@ -45,3 +45,40 @@ ride1.start();
 let ride2 = new Ride();
 ride2.start();
 console.log("Rides everywhere: ", Ride.activeRides);
+class Person {
+    constructor(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+    get fullName() {
+        return this.firstName + ' ' + this.lastName;
+    }
+    walk() {
+        console.log('Waling');
+    }
+}
+class Student extends Person {
+    constructor(studentId, firstName, lastName) {
+        super(firstName, lastName);
+        this.studentId = studentId;
+    }
+    takeTest() {
+        console.log('Taking a test');
+        this.walk();
+    }
+}
+let student = new Student(1, 'Johnny', 'Test');
+student.takeTest();
+class Teacher extends Person {
+    get fullName() {
+        return 'Professor ' + super.fullName;
+    }
+}
+let teacher = new Teacher("Juan", "Torres");
+console.log(teacher.fullName);
+function printNames(people) {
+    for (let person of people) {
+        console.log(person.fullName);
+    }
+}
+printNames([new Person("John", "Smith"), new Teacher("Jacob", "Lautner")]);
