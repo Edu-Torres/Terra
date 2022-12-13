@@ -1,22 +1,30 @@
+const validateObjectId = require('../middleware/validateObjectId');
+const auth = require('../middleware/auth');
+const admin = require('../middleware/admin');
 const { Genre, validate } = require("../models/genre");
 const express = require("express");
 const router = express.Router();
+const asyncMiddleware = require('../middleware/async');
+const mongoose = require('mongoose');
 
-router.get("/", async (req, res) => {
-  const nameQuery = req.query.name;
-  let genres = [];
-  if (nameQuery) genres = await Genre.find({ name: nameQuery }).sort("name");
-  else genres = await Genre.find().sort("name");
+// Secon parameter is a function expression (not call)
+// It is the Express framework that calls the function at runtime
+// and passes the parameters req, res, next
+router.get("/", asyncMiddleware(async (req, res, next) => {
+  // const nameQuery = req.query.name; Query params
+  const genres = await Genre.find().sort("name");
   res.send(genres);
+}));
+
+router.get("/:id", validateObjectId, async (req, res) => {
+  const genre = await Genre.findById( req.params.id );
+  if (!genre) return res.status(404).send("Genre with given id not found");
+  res.send(genre);
 });
 
-router.get("/:id", async (req, res) => {
-  const genres = await Genre.find({ id: req.params.name });
-  if (!genres) return res.status(404).send("Genre with given id not found");
-  res.send(genres);
-});
-
-router.post("/", async (req, res) => {
+// Parameters: route, optional middleware, route handler function
+// Only authenticated users
+router.post("/", auth, async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
@@ -25,7 +33,7 @@ router.post("/", async (req, res) => {
   res.send(genre);
 });
 
-router.put("/:id", async (req, res) => {
+router.put("/:id", [auth, validateObjectId], async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
@@ -38,7 +46,8 @@ router.put("/:id", async (req, res) => {
   res.send(genre);
 });
 
-router.delete("/:id", async (req, res) => {
+// Multiple Middleware functions in array and in order
+router.delete("/:id", [auth, admin, validateObjectId], async (req, res) => {
   const genre = await Genre.findByIdAndRemove(req.params.id);
   if (!genre) return res.status(404).send("Genre with given id not found");
   res.send(genre);

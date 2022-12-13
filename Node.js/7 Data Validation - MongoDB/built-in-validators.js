@@ -15,7 +15,7 @@ const bookSchema = new mongoose.Schema({
     type: String,
     minlength: 3,
     maxlength: 25,
-    match: /^J/i // Only authors that start with letter E
+    match: /^E/i // Only authors that start with letter E
   },
   category: {
     type: String,
