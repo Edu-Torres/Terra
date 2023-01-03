@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
 const Joi = require("joi");
+const moment = require('moment'); // library to play with dates
 
 const rentalSchema = new mongoose.Schema({
   customer: {
     type: new mongoose.Schema({
       name: {
-        type: String, 
+        type: String,
         required: true,
         maxlength: 255
       },
@@ -31,16 +32,37 @@ const rentalSchema = new mongoose.Schema({
     required: true
   },
   dateOut: {
-    type: Date, 
+    type: Date,
     required: true,
     default: Date.now()
   },
-  dateReturned: Date, 
+  dateReturned: Date,
   rentalFee: {
     type: Number,
     min: 0
   }
-})
+});
+
+// Static method
+rentalSchema.statics.lookup = function (customerId, movieId) {
+  // let the caller of the lookup method await the promise
+  return this.findOne({
+    'customer._id': customerId,
+    'movie._id': movieId
+  })
+  // We use dot notation and quotes to access a property in a subdocument
+}
+
+// Instance Method
+rentalSchema.methods.return = function () {
+  this.dateReturned = new Date();
+
+  const rentalDays = moment().diff(this.dateOut, 'days')
+  this.rentalFee = rentalDays * this.movie.dailyRentalRate;
+}
+
+
+
 const Rental = mongoose.model(
     "Rentals",
     rentalSchema
